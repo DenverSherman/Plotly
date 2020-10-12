@@ -60,13 +60,8 @@ function buildCharts(sample) {
     // 3. Create a variable that holds the samples array. 
     var samples = data.samples;
     var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
-    var result = resultArray[0]
+    var result = resultArray[0];
 
-    // hold the metadata for Gauge plot
-    var metadata = data.metadata;
-    var resultArrayMD = metadata.filter(sampleObj => {sampleObj.id == sample});
-    //var resultMD = resultArrayMD[0];
-    
     // 4. Create a variable that filters the samples for the object with the desired sample number.
 
     //  5. Create a variable that holds the first sample in the array.
@@ -76,11 +71,8 @@ function buildCharts(sample) {
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids;
     var otu_labels = result.otu_labels;
-    //var sample_values = result.sample_values;
-    //var washFreq = resultMD.wfreq;
+    var sample_values = result.sample_values;
 
-    
-    console.log(washFreq)
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
@@ -122,7 +114,11 @@ function buildCharts(sample) {
     Plotly.newPlot('bubble', bubbleData, bubbleLayout);
     
     // 4. Create the trace for the gauge chart.
-    
+    var metadata = data.metadata;
+    var resultArrayMD = metadata.filter(sampleObj => {sampleObj.id == sample});
+    var resultMD = resultArrayMD[0];
+    var washFreq = resultMD.wfreq;
+
     var gaugeData = [
       {
         domain: { x: [0, 1], y: [0, 1] },
