@@ -71,6 +71,7 @@ function buildCharts(sample) {
     var otu_ids = result.otu_ids;
     var otu_labels = result.otu_labels;
     var sample_values = result.sample_values;
+    var washFreq = result.wfreq;
 
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -97,13 +98,10 @@ function buildCharts(sample) {
     // Create the trace for the bubble chart.
     var bubbleData = {
       x: otu_ids,
-      y:sample_values,
+      y: sample_values,
       text: otu_labels,
       mode: 'markers',
-      marker: {
-        color: otu_ids,
-        size: sample_values
-      }
+      marker: {color: otu_ids, size: sample_values}
     };
 
     // Create the layout for the bubble chart.
@@ -113,14 +111,14 @@ function buildCharts(sample) {
     };
 
     // D2: 3. Use Plotly to plot the data with the layout.
-    Plotly.newPlot('bubble', bubbleData, bubbleLayout)
+    Plotly.newPlot('bubble', bubbleData, bubbleLayout);
     
     // 4. Create the trace for the gauge chart.
-    var wash_freq = result.wfreq;
+    
     var gaugeData = [
       {
         domain: { x: [0, 1], y: [0, 1] },
-        value: wash_freq,
+        value: washFreq,
         title: {text: "Belly Button Washing Frequency <br> Scrubs per Week", font: {size: 18}},
         type: "indicator",
         mode: "gauge+number",
