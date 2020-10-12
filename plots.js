@@ -116,6 +116,7 @@ function buildCharts(sample) {
     Plotly.newPlot('bubble', bubbleData, bubbleLayout)
     
     // 4. Create the trace for the gauge chart.
+    var wash_freq = result.wfreq;
     var gaugeData = [
       {
         domain: { x: [0, 1], y: [0, 1] },
