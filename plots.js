@@ -61,6 +61,7 @@ function buildCharts(sample) {
     var samples = data.samples;
     var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
+    var washFreq = data.metadata.map(d => d.wfreq)
 
     // 4. Create a variable that filters the samples for the object with the desired sample number.
 
@@ -114,11 +115,6 @@ function buildCharts(sample) {
     Plotly.newPlot('bubble', bubbleData, bubbleLayout);
     
     // 4. Create the trace for the gauge chart.
-    var metadata = data.metadata;
-    var resultArrayMD = metadata.filter(sampleObj => {sampleObj.id == sample});
-    var resultMD = resultArrayMD[0];
-    var washFreq = resultMD.wfreq;
-
     var gaugeData = [
       {
         domain: { x: [0, 1], y: [0, 1] },
