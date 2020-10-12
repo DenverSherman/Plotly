@@ -113,7 +113,7 @@ function buildCharts(sample) {
     };
 
     // D2: 3. Use Plotly to plot the data with the layout.
-    Plotly.newPlot('bubble', data, bubble_layout)
+    Plotly.newPlot('bubble', bubbleData, bubbleLayout)
     
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
@@ -150,7 +150,7 @@ function buildCharts(sample) {
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot('gauge', gauge_trace, gauge_layout)
+    Plotly.newPlot('gauge', gaugeData, gaugeLayout)
     
   });
-}
+};
