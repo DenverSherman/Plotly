@@ -65,8 +65,6 @@ function buildCharts(sample) {
     var resultArray2 = metadata.filter(sampleObj => sampleObj.id == sample)
     var result2 = resultArray2[0]
     var washFreq = result2.wfreq
-    console.log(washFreq);
-
     // 4. Create a variable that filters the samples for the object with the desired sample number.
 
     //  5. Create a variable that holds the first sample in the array.
