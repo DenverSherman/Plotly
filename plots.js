@@ -37,7 +37,7 @@ function buildMetadata(sample) {
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
-   
+    var washFreq = result.wfreq;
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#sample-metadata");
 
@@ -65,7 +65,7 @@ function buildCharts(sample) {
     // hold the metadata for Gauge plot
     var metadata = data.metadata;
     var resultArrayMD = metadata.filter(sampleObj => {sampleObj.id == sample});
-    var resultMD = resultArrayMD[0];
+    //var resultMD = resultArrayMD[0];
     
     // 4. Create a variable that filters the samples for the object with the desired sample number.
 
@@ -76,8 +76,8 @@ function buildCharts(sample) {
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids;
     var otu_labels = result.otu_labels;
-    var sample_values = result.sample_values;
-    var washFreq = resultMD.wfreq;
+    //var sample_values = result.sample_values;
+    //var washFreq = resultMD.wfreq;
 
     
     console.log(washFreq)
